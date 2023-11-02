@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<form action="entry" method="post" class="custom-form">
+    {% csrf_token %}
+    <div class="form-section">
+        <h1 class="section-title">Scan License Plate</h1>
+        <p class="section-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nostrum voluptatibus iste ab tenetur itaque! Porro consequatur error maiores consectetur culpa. Dignissimos sapiente natus officiis nam voluptatum, vel laborum eum distinctio ipsam eius animi nihil labore facere unde dicta numquam, fugit doloremque minus. Minus magnam totam earum placeat laboriosam, consequatur laborum officiis quod harum, molestiae sint in alias. Facilis qui voluptatum rem culpa consectetur quibusdam eaque, et a saepe magnam, cumque in vel, quam iusto?
+        </p>
+        <button type="button" id="scan" class="custom-button">Scan</button>
+        <div id="scaned" class="result-box"></div>
+    </div>
+    
+    <div class="form-section">
+        <h1 class="section-title">Generate Slot Number</h1>
+        <p class="section-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi adipisci magni qui atque nisi molestias iusto autem nostrum corrupti facilis ipsum accusantium veniam accusamus alias eaque porro, impedit provident officiis. Minima quisquam debitis voluptatibus, autem ad dolorem quasi saepe soluta, repellendus vitae quam at dicta eum voluptate fuga suscipit maiores incidunt itaque quia delectus atque! Alias blanditiis veritatis totam voluptatum molestiae sequi quae, eos possimus ut praesentium minima laboriosam officia similique quasi corrupti sunt nulla.
+        </p>
+        <button type="button" id="generate" class="custom-button">Generate</button>
+        <div id="generated" class="result-box"></div>
+    </div>
+    
+    <button type="submit" class="custom-submit-button">Save</button>
+</form>
+{% endblock body %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<form action="exit" method="post" class="custom-form">{% csrf_token %}
+    <div class="form-section">
+        <h1 class="section-title">Scan Licience Plate</h1>
+        <p class="section-text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Mollitia, debitis ullam? Vitae harum illum ex velit. Tenetur reiciendis, dolorem voluptatem numquam ab, laudantium eos adipisci ipsa libero, beatae quae? Nulla minus, nesciunt dignissimos maxime quasi facere quas, cum praesentium dicta expedita quia! Nostrum perferendis quos expedita similique hic adipisci dolores soluta quam animi labore nesciunt in commodi quia voluptatem dolor sint culpa deleniti amet, tempore modi natus? Omnis saepe tempora nesciunt nulla voluptates, eligendi quae.
+        </p>
+        <button class="custom-button" type="button" id="scan">Scan</button>
+        <div id="scaned" class="result-box"></div>
+        <p class="section-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi odit magni sunt exercitationem et ipsum natus vitae quos. Necessitatibus distinctio quibusdam et placeat? Cum doloribus minima illo? Dolor illum molestias itaque facere porro, harum non aliquid? Illum neque provident quaerat soluta animi impedit dicta, incidunt esse. Ipsa dicta sed rem eius doloribus nulla reiciendis consequatur omnis ut accusamus debitis nihil ea amet non nam sit voluptatibus, labore illum! Neque rem quae veniam sed perferendis inventore!
+        </p>
+        <button type="submit" class="custom-button">Show</button>
+    </div>
+</form>
+{% endblock body %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+<form action="show" method="post">{% csrf_token %}
+    <button type="submit">Delete</button>
+    <div class="grid-container">
+        <div class="grid-item">Plate Number</div>
+        <div class="grid-item">Slot Number</div>
+        <div class="grid-item">Time</div>
+        <div class="grid-item">{{ car.car_number }}</div>
+        <div class="grid-item">{{ car.slot_number }}</div>
+        <div class="grid-item">{{ car.time }}</div>
+        <input type="hidden" name="number" value="{{car.car_number}}">
+    </div>
+</form>
+{% endblock body %}

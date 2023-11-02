@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+<form action="manage" method="post" class="custom-form">
+    {% csrf_token %}
+    <input type="text" name="input">
+    <button>Search</button>
+    <div class="grid-container">
+        <div class="grid-item">Plate Number</div>
+        <div class="grid-item">Slot Number</div>
+        <div class="grid-item">Time</div>
+        <div class="grid-item">{{ car.car_number }}</div>
+        <div class="grid-item">{{ car.slot_number }}</div>
+        <div class="grid-item">{{ car.time }}</div>
+    </div>
+</form>
+{% endblock body %}

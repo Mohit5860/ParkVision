@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>ParkVision</title>
+</head>
+<body>
+    <div class="navbar">
+        <h1 class="nav-heading">ParkVision</h1>
+        <ul class="nav-item">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/features">Features</a>
+            </li>
+            <li>
+                <a href="/entry">Entry</a>
+            </li>
+            <li>
+                <a href="/manage">Manage</a>
+            </li>
+            <li>
+                <a href="/exit">Exit</a>
+            </li>
+        </ul>
+    </div>
+    {% block body %}
+    {% endblock body %}
+    <h1>footer</h1>
+    <script src="{% static 'index.js' %}"></script>
+</body>
+</html>
