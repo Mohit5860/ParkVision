@@ -5,7 +5,13 @@
     <div class="form-section">
         <h1 class="section-title">Scan License Plate</h1>
         <p class="section-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat nostrum voluptatibus iste ab tenetur itaque! Porro consequatur error maiores consectetur culpa. Dignissimos sapiente natus officiis nam voluptatum, vel laborum eum distinctio ipsam eius animi nihil labore facere unde dicta numquam, fugit doloremque minus. Minus magnam totam earum placeat laboriosam, consequatur laborum officiis quod harum, molestiae sint in alias. Facilis qui voluptatum rem culpa consectetur quibusdam eaque, et a saepe magnam, cumque in vel, quam iusto?
+            Elevate your vehicle recognition capabilities with our License Plate Detection and Recognition tool. Powered by OpenCV and EasyOCR, this feature integrates real-time video capture to identify and highlight license plates within the camera feed. The system utilizes a Haar Cascade classifier for initial plate detection and filters out small areas to focus on significant plate details.
+
+            As the system runs, detected license plates are outlined with a green rectangle, accompanied by a descriptive label. Upon user command (pressing 's'), the system captures and saves the plate image to a designated directory. A visual confirmation is displayed on the video feed, acknowledging the successful plate capture.
+            
+            What sets this tool apart is its seamless integration with EasyOCR for license plate text extraction. Saved plate images are passed through EasyOCR, enabling the recognition of alphanumeric characters. The extracted information is then printed to the console, providing users with a convenient and efficient means of obtaining license plate details.
+            
+            This tool is designed to enhance security and streamline processes in various applications, from parking management to law enforcement. Its versatility and accuracy make it an invaluable asset for any system requiring license plate identification and recognition.            
         </p>
         <button type="button" id="scan" class="custom-button">Scan</button>
         <div id="scaned" class="result-box"></div>
@@ -14,7 +20,7 @@
     <div class="form-section">
         <h1 class="section-title">Generate Slot Number</h1>
         <p class="section-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi adipisci magni qui atque nisi molestias iusto autem nostrum corrupti facilis ipsum accusantium veniam accusamus alias eaque porro, impedit provident officiis. Minima quisquam debitis voluptatibus, autem ad dolorem quasi saepe soluta, repellendus vitae quam at dicta eum voluptate fuga suscipit maiores incidunt itaque quia delectus atque! Alias blanditiis veritatis totam voluptatum molestiae sequi quae, eos possimus ut praesentium minima laboriosam officia similique quasi corrupti sunt nulla.
+            This feature transforms the way parking spaces are handled. Users simply upload an image of a parking lot, and our system employs OCR to extract text information. It accurately identifies numeric values representing parking slot numbers, with a confidence threshold ensuring precision. The recognized slot numbers are then visually highlighted on the original image, providing users with instant, real-time feedback on parking slot allocations. The user-friendly interface enhances the overall experience, making it intuitive for users to locate specific parking spaces. This tool is a powerful addition to streamline parking management and improve user satisfaction.
         </p>
         <button type="button" id="generate" class="custom-button">Generate</button>
         <div id="generated" class="result-box"></div>

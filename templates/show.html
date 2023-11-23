@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <form action="show" method="post">{% csrf_token %}
-    <button type="submit">Delete</button>
+    
     <div class="grid-container">
         <div class="grid-item">Plate Number</div>
         <div class="grid-item">Slot Number</div>
@@ -11,5 +11,6 @@
         <div class="grid-item">{{ car.time }}</div>
         <input type="hidden" name="number" value="{{car.car_number}}">
     </div>
+    <button type="submit">Delete</button>
 </form>
 {% endblock body %}

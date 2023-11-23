@@ -10,11 +10,10 @@ import easyocr
 def home(request):
     return render(request, "home.html", {})
 
-def features(request):
-    return render(request, "features.html", {})
+# def features(request):
+#     return render(request, "features.html", {})
 
 def entry(request):
-    print("working")
     if request.method == "POST":
         print("request")
         car_number = request.POST.get('number')
@@ -68,9 +67,57 @@ def generate(request):
     return JsonResponse(response)
 
 def scan(request):
+    harcasecade = "model/numberplate_haarcade.xml"
+    reader = easyocr.Reader(['en'])
+
+    cap = cv2.VideoCapture(0)
+
+    cap.set(3,640) # width
+    cap.set(4,480) # height
+
+    min_area = 500
+    count = request.session.get('count', 0)
+    car_number = None
+
+    while True:
+        success, img = cap.read()
+        plate_cascade = cv2.CascadeClassifier(harcasecade)
+        img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+        plates = plate_cascade.detectMultiScale(img_gray, 1.1, 4)
+
+        for (x,y,w,h) in plates:
+            area = w*h 
+            if area>min_area:
+                cv2.rectangle(img, (x,y), (x+w, y+h), (0,255,0), 2)
+                cv2.putText(img, "Number Plate", (x,y-5), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255,0,255), 2)
+
+                img_roi = img[y: y+h, x: x+w]
+
+        cv2.imshow("Result", img)
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('s'):
+            cv2.imwrite("plates/scned_img_" + str(count) + ".jpg", img_roi)
+            cv2.rectangle(img, (0, 200), (640, 300), (0, 255, 0), cv2.FILLED)
+            cv2.putText(img, "Plate Saved", (150, 265), cv2.FONT_HERSHEY_COMPLEX_SMALL, 2, (0, 0, 255), 2)
+            cv2.imshow("Results", img)
+            cv2.waitKey(500)
+            output = reader.readtext("plates/scned_img_" + str(count) + ".jpg")
+            if output:
+                car_number = output[0][-2]
+                print("Car Number:", car_number)
+            else:
+                print("No text detected on the number plate.")
+            count += 1
+        elif key == ord('q'):
+            break
+    request.session['count'] = count
+    cap.release()
+    cv2.destroyAllWindows()
+
     response = {
-        'number' : 23,
-        'image_url' : "https://imgs.search.brave.com/Rj-yt2o7wXMGBGe_q2Von992X5y1C8W6Gd_Z1XFoURs/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE0/NDQ3MDM2ODY5ODEt/YTNhYmJjNGQ0ZmUz/P2F1dG89Zm9ybWF0/JmZpdD1jcm9wJnE9/ODAmdz0xMDAwJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4T0h4OGNH/bGpkSFZ5Wlh4bGJu/d3dmSHd3Zkh4OE1B/PT0.jpeg"
+        'number' : car_number,
+        'image_url' : f"plates/scned_img_{count - 1}.jpg"
     }
     return JsonResponse(response)
 

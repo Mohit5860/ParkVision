@@ -15,9 +15,9 @@
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="/features">Features</a>
-            </li>
+            </li> -->
             <li>
                 <a href="/entry">Entry</a>
             </li>
@@ -31,7 +31,26 @@
     </div>
     {% block body %}
     {% endblock body %}
-    <h1>footer</h1>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@example.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <p><a href="#">Facebook</a></p>
+                <p><a href="#">Twitter</a></p>
+                <p><a href="#">Instagram</a></p>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2023 ParkVision. All rights reserved.</p>
+        </div>
+    </footer>
     <script src="{% static 'index.js' %}"></script>
 </body>
 </html>

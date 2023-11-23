@@ -28,13 +28,19 @@ while True:
             img_roi = img[y: y+h, x: x+w]
 
     cv2.imshow("Result", img)
-
-    if cv2.waitKey(1) & 0xFF == ord('s'):
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('s'):
         cv2.imwrite("plates/scned_img_" + str(count) + ".jpg", img_roi)
-        cv2.rectangle(img, (0,200), (640,300), (0,255,0), cv2.FILLED)
-        cv2.putText(img, "Plate Saved", (150, 265), cv2.FONT_HERSHEY_COMPLEX_SMALL, 2, (0,0,255), 2)
+        cv2.rectangle(img, (0, 200), (640, 300), (0, 255, 0), cv2.FILLED)
+        cv2.putText(img, "Plate Saved", (150, 265), cv2.FONT_HERSHEY_COMPLEX_SMALL, 2, (0, 0, 255), 2)
         cv2.imshow("Results", img)
         cv2.waitKey(500)
         output = reader.readtext("plates/scned_img_" + str(count) + ".jpg")
         print(output)
-        count+=1
+        count += 1
+    elif key == ord('q'):
+        break
+
+# Release the camera capture
+cap.release()
+cv2.destroyAllWindows()

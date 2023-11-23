@@ -4,7 +4,7 @@ from parkVision import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    path("features", views.features, name="Features"),
+    # path("features", views.features, name="Features"),
     path("generate", views.generate, name="Generate"),
     path("entry", views.entry, name="Entry"),
     path("manage", views.manage, name="Manage"),
